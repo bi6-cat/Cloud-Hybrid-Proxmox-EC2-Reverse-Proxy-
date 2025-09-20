@@ -30,7 +30,13 @@
 4. Cấu hình autossh reverse tunnel từ Proxmox → EC2:  
 
    ```bash
-   autossh -M 0 -N -f      -o ServerAliveInterval=60 -o ServerAliveCountMax=3      -i ~/.ssh/ec2-hk.pem      -R 0.0.0.0:8006:127.0.0.1:8006      -R 0.0.0.0:2222:192.168.32.180:22      -R 0.0.0.0:33890:192.168.32.139:3389      ubuntu@<EC2_PUBLIC_IP>
+    autossh -M 0 -N -f \
+    -o ServerAliveInterval=60 -o ServerAliveCountMax=3 \
+    -i ~/.ssh/ec2-hk.pem   \   
+    -R 0.0.0.0:8006:127.0.0.1:8006  \    
+    -R 0.0.0.0:2222:192.168.32.180:22   \
+    -R 0.0.0.0:33890:192.168.32.139:3389   \
+    ubuntu@<EC2_PUBLIC_IP>
    ```
 
 5. Chỉnh `sshd_config` trên EC2:  
